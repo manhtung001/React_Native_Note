@@ -1,0 +1,137 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red183\green111\blue179;\red23\green23\blue23;
+\red140\green211\blue254;\red194\green126\blue101;\red70\green137\blue204;\red67\green192\blue160;\red89\green138\blue67;
+\red167\green197\blue152;\red212\green214\blue154;\red66\green179\blue255;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\cssrgb\c77255\c52549\c75294;\cssrgb\c11765\c11765\c11765;
+\cssrgb\c61176\c86275\c99608;\cssrgb\c80784\c56863\c47059;\cssrgb\c33725\c61176\c83922;\cssrgb\c30588\c78824\c69020;\cssrgb\c41569\c60000\c33333;
+\cssrgb\c70980\c80784\c65882;\cssrgb\c86275\c86275\c66667;\cssrgb\c30980\c75686\c100000;\cssrgb\c50196\c50196\c50196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 \strokec3 import\cf2 \strokec2  \cf5 \strokec5 React\cf2 \strokec2 , \{ \cf5 \strokec5 useEffect\cf2 \strokec2 , \cf5 \strokec5 useState\cf2 \strokec2 , \cf5 \strokec5 Component\cf2 \strokec2  \} \cf3 \strokec3 from\cf2 \strokec2  \cf6 \strokec6 'react'\cf2 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf2 \strokec2  \{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4   \cf5 \strokec5 View\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 SafeAreaView\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 StyleSheet\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 StatusBar\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 TouchableOpacity\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 ScrollView\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 FlatList\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 Animated\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 RefreshControl\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 Platform\cf2 \strokec2 ,\cb1 \
+\cb4 \} \cf3 \strokec3 from\cf2 \strokec2  \cf6 \strokec6 'react-native'\cf2 \strokec2 ;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 \strokec3 import\cf2 \strokec2  \{ \cf5 \strokec5 Text\cf2 \strokec2 , \cf5 \strokec5 VoucherItem\cf2 \strokec2  \} \cf3 \strokec3 from\cf2 \strokec2  \cf6 \strokec6 '../../components'\cf2 \strokec2 ;\cb1 \
+\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \cb4 \strokec7 class\cf2 \strokec2  \cf8 \strokec8 HomeScreen\cf2 \strokec2  \cf7 \strokec7 extends\cf2 \strokec2  \cf8 \strokec8 Component\cf2 \strokec2  \{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4   \cf9 \strokec9 //////ANIMATION////////////////////\cf2 \cb1 \strokec2 \
+\
+\cb4   \cf5 \strokec5 _scrollY\cf2 \strokec2  = \cf7 \strokec7 new\cf2 \strokec2  \cf8 \strokec8 Animated\cf2 \strokec2 .\cf8 \strokec8 Value\cf2 \strokec2 (\cf10 \strokec10 0\cf2 \strokec2 );\cb1 \
+\
+\cb4   \cf11 \strokec11 _renderScrollViewContent\cf2 \strokec2 () \{\cb1 \
+\cb4     \cf7 \strokec7 const\cf2 \strokec2  \cf12 \strokec12 data\cf2 \strokec2  = \cf8 \strokec8 Array\cf2 \strokec2 .\cf11 \strokec11 from\cf2 \strokec2 (\{ \cf5 \strokec5 length:\cf2 \strokec2  \cf10 \strokec10 40\cf2 \strokec2  \});\cb1 \
+\cb4     \cf3 \strokec3 return\cf2 \strokec2  (\cb1 \
+\cb4       \cf13 \strokec13 <\cf8 \strokec8 View\cf2 \strokec2  \cf5 \strokec5 style\cf2 \strokec2 =\cf7 \strokec7 \{\cf12 \strokec12 styles\cf2 \strokec2 .\cf5 \strokec5 scrollViewContent\cf7 \strokec7 \}\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4         \cf7 \strokec7 \{\cf12 \strokec12 data\cf2 \strokec2 .\cf11 \strokec11 map\cf2 \strokec2 ((\cf5 \strokec5 _\cf2 \strokec2 , \cf5 \strokec5 i\cf2 \strokec2 ) \cf7 \strokec7 =>\cf2 \cb1 \strokec2 \
+\cb4           \cf13 \strokec13 <\cf8 \strokec8 View\cf2 \strokec2  \cf5 \strokec5 key\cf2 \strokec2 =\cf7 \strokec7 \{\cf5 \strokec5 i\cf7 \strokec7 \}\cf2 \strokec2  \cf5 \strokec5 style\cf2 \strokec2 =\cf7 \strokec7 \{\cf12 \strokec12 styles\cf2 \strokec2 .\cf5 \strokec5 row\cf7 \strokec7 \}\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4             \cf13 \strokec13 <\cf8 \strokec8 Text\cf13 \strokec13 >\cf7 \strokec7 \{\cf5 \strokec5 i\cf7 \strokec7 \}\cf13 \strokec13 </\cf8 \strokec8 Text\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4           \cf13 \strokec13 </\cf8 \strokec8 View\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4         )\cf7 \strokec7 \}\cf2 \cb1 \strokec2 \
+\cb4       \cf13 \strokec13 </\cf8 \strokec8 View\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4     );\cb1 \
+\cb4   \}\cb1 \
+\
+\cb4   \cf11 \strokec11 render\cf2 \strokec2 () \{\cb1 \
+\
+\cb4     \cf7 \strokec7 let\cf2 \strokec2  \cf5 \strokec5 min\cf2 \strokec2  = \cf7 \strokec7 this\cf2 \strokec2 .\cf5 \strokec5 _scrollY\cf2 \strokec2 .\cf11 \strokec11 interpolate\cf2 \strokec2 (\{\cb1 \
+\cb4       \cf5 \strokec5 inputRange:\cf2 \strokec2  [-\cf10 \strokec10 10\cf2 \strokec2 , \cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 100\cf2 \strokec2 , \cf10 \strokec10 200\cf2 \strokec2 ],\cb1 \
+\cb4       \cf5 \strokec5 outputRange:\cf2 \strokec2  [\cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 200\cf2 \strokec2 ],\cb1 \
+\cb4     \});\cb1 \
+\
+\cb4     \cf7 \strokec7 let\cf2 \strokec2  \cf5 \strokec5 translateY\cf2 \strokec2  = \cf8 \strokec8 Animated\cf2 \strokec2 .\cf11 \strokec11 diffClamp\cf2 \strokec2 (\cf5 \strokec5 min\cf2 \strokec2 , \cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 100\cf2 \strokec2 ).\cf11 \strokec11 interpolate\cf2 \strokec2 (\{\cb1 \
+\cb4       \cf5 \strokec5 inputRange:\cf2 \strokec2  [\cf10 \strokec10 0\cf2 \strokec2 , \cf10 \strokec10 100\cf2 \strokec2 ],\cb1 \
+\cb4       \cf5 \strokec5 outputRange:\cf2 \strokec2  [\cf10 \strokec10 0\cf2 \strokec2 , -\cf10 \strokec10 46\cf2 \strokec2 ],\cb1 \
+\cb4     \});\cb1 \
+\
+\
+\cb4     \cf3 \strokec3 return\cf2 \strokec2  (\cb1 \
+\cb4       \cf13 \strokec13 <\cf8 \strokec8 View\cf2 \strokec2  \cf5 \strokec5 style\cf2 \strokec2 =\cf7 \strokec7 \{\cf12 \strokec12 styles\cf2 \strokec2 .\cf5 \strokec5 fill\cf7 \strokec7 \}\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 <\cf8 \strokec8 Animated.ScrollView\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 style\cf2 \strokec2 =\cf7 \strokec7 \{\cf12 \strokec12 styles\cf2 \strokec2 .\cf5 \strokec5 fill\cf7 \strokec7 \}\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 onScroll\cf2 \strokec2 =\cf7 \strokec7 \{\cf8 \strokec8 Animated\cf2 \strokec2 .\cf11 \strokec11 event\cf2 \strokec2 (\cb1 \
+\cb4             [\cb1 \
+\cb4               \{\cb1 \
+\cb4                 \cf5 \strokec5 nativeEvent:\cf2 \strokec2  \{\cb1 \
+\cb4                   \cf5 \strokec5 contentOffset:\cf2 \strokec2  \{\cb1 \
+\cb4                     \cf5 \strokec5 y:\cf2 \strokec2  \cf7 \strokec7 this\cf2 \strokec2 .\cf5 \strokec5 _scrollY\cf2 \strokec2 ,\cb1 \
+\cb4                   \},\cb1 \
+\cb4                 \},\cb1 \
+\cb4               \},\cb1 \
+\cb4             ],\cb1 \
+\cb4             \{\cb1 \
+\cb4               \cf5 \strokec5 useNativeDriver:\cf2 \strokec2  \cf7 \strokec7 true\cf2 \strokec2 ,\cb1 \
+\cb4             \},\cb1 \
+\cb4           )\cf7 \strokec7 \}\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4           \cf7 \strokec7 \{this\cf2 \strokec2 .\cf11 \strokec11 _renderScrollViewContent\cf2 \strokec2 ()\cf7 \strokec7 \}\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 </\cf8 \strokec8 Animated.ScrollView\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 <\cf8 \strokec8 Animated.View\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 style\cf2 \strokec2 =\cf7 \strokec7 \{\cf2 \strokec2 \{\cb1 \
+\cb4             \cf5 \strokec5 backgroundColor:\cf2 \strokec2  \cf6 \strokec6 'green'\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 position:\cf2 \strokec2  \cf6 \strokec6 'absolute'\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 zIndex:\cf2 \strokec2  \cf10 \strokec10 1\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 transform:\cf2 \strokec2  [\{ \cf5 \strokec5 translateY\cf2 \strokec2  \}],\cb1 \
+\cb4             \cf5 \strokec5 height:\cf2 \strokec2  \cf10 \strokec10 50\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 width:\cf2 \strokec2  \cf6 \strokec6 '100%'\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 marginTop:\cf2 \strokec2  \cf10 \strokec10 30\cf2 \strokec2 ,\cb1 \
+\cb4             \cf5 \strokec5 overflow:\cf2 \strokec2  \cf6 \strokec6 'hidden'\cf2 \strokec2 ,\cb1 \
+\
+\cb4           \}\cf7 \strokec7 \}\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\cb4         \cf13 \strokec13 </\cf8 \strokec8 Animated.View\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\
+\cb4       \cf13 \strokec13 </\cf8 \strokec8 View\cf13 \strokec13 >\cf2 \cb1 \strokec2 \
+\
+\cb4     );\cb1 \
+\cb4   \}\cb1 \
+\cb4 \}\cb1 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \cb4 \strokec7 const\cf2 \strokec2  \cf11 \strokec11 mapStateToProps\cf2 \strokec2  = (\cf5 \strokec5 state\cf2 \strokec2 ) \cf7 \strokec7 =>\cf2 \strokec2  (\{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4   \cf5 \strokec5 category:\cf2 \strokec2  \cf5 \strokec5 state\cf2 \strokec2 .\cf5 \strokec5 categoryReducer\cf2 \strokec2 .\cf5 \strokec5 category\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 listVoucher:\cf2 \strokec2  \cf5 \strokec5 state\cf2 \strokec2 .\cf5 \strokec5 homeScreenReducer\cf2 \strokec2 .\cf5 \strokec5 listVoucher\cf2 \strokec2 ,\cb1 \
+\cb4   \cf5 \strokec5 listVoucherEx:\cf2 \strokec2  \cf5 \strokec5 state\cf2 \strokec2 .\cf5 \strokec5 homeScreenReducer\cf2 \strokec2 .\cf5 \strokec5 litVoucherEx\cf2 \strokec2 ,\cb1 \
+\cb4 \});\cb1 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 \strokec3 export\cf2 \strokec2  \cf3 \strokec3 default\cf2 \strokec2  \cf8 \strokec8 HomeScreen\cf2 \strokec2 ;\cb1 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \cb4 \strokec7 const\cf2 \strokec2  \cf12 \strokec12 styles\cf2 \strokec2  = \cf8 \strokec8 StyleSheet\cf2 \strokec2 .\cf11 \strokec11 create\cf2 \strokec2 (\{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4   \cf5 \strokec5 fill:\cf2 \strokec2  \{\cb1 \
+\cb4     \cf5 \strokec5 flex:\cf2 \strokec2  \cf10 \strokec10 1\cf2 \strokec2 ,\cb1 \
+\cb4     \cf9 \strokec9 // paddingTop: 100\cf2 \cb1 \strokec2 \
+\cb4   \},\cb1 \
+\cb4   \cf5 \strokec5 row:\cf2 \strokec2  \{\cb1 \
+\cb4     \cf5 \strokec5 height:\cf2 \strokec2  \cf10 \strokec10 40\cf2 \strokec2 ,\cb1 \
+\cb4     \cf5 \strokec5 margin:\cf2 \strokec2  \cf10 \strokec10 16\cf2 \strokec2 ,\cb1 \
+\cb4     \cf5 \strokec5 backgroundColor:\cf2 \strokec2  \cf6 \strokec6 '#D3D3D3'\cf2 \strokec2 ,\cb1 \
+\cb4     \cf5 \strokec5 alignItems:\cf2 \strokec2  \cf6 \strokec6 'center'\cf2 \strokec2 ,\cb1 \
+\cb4     \cf5 \strokec5 justifyContent:\cf2 \strokec2  \cf6 \strokec6 'center'\cf2 \strokec2 ,\cb1 \
+\cb4   \},\cb1 \
+\cb4 \})\cb1 \
+\
+\
+}
